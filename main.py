@@ -82,6 +82,15 @@ def inverse():
     display.delete(0, END)
     display.insert(0, value)
 
+def square():
+    value = float(display.get())**2
+    display.delete(0, END)
+    display.insert(0, value)
+
+def negate():
+    value = -1*float(display.get())
+    display.delete(0, END)
+    display.insert(0, value)
 
 
 #gui layout
@@ -100,7 +109,7 @@ clear_button = tkinter.Button(button_frame, text="Clear", font=button_font, bg=d
 quit_button = tkinter.Button(button_frame, text="Quit", font=button_font, bg=dark_green, command=root.destroy)
 
 inverse_button = tkinter.Button(button_frame, text="1/x", font=button_font, bg=light_green, command=inverse)
-square_button = tkinter.Button(button_frame, text="x^2", font=button_font, bg=light_green)
+square_button = tkinter.Button(button_frame, text="x^2", font=button_font, bg=light_green, command=square)
 exponent_button = tkinter.Button(button_frame, text="x^n", font=button_font, bg=light_green, command=lambda:operate('exponent'))
 divide_button = tkinter.Button(button_frame, text="/", font=button_font, bg=light_green, command=lambda:operate('divide'))
 multiply_button = tkinter.Button(button_frame, text="*", font=button_font, bg=light_green, command=lambda:operate('multiply'))
@@ -108,7 +117,7 @@ subtract_button = tkinter.Button(button_frame, text="-", font=button_font, bg=li
 add_button = tkinter.Button(button_frame, text="+", font=button_font, bg=light_green, command=lambda:operate('add'))
 equal_button = tkinter.Button(button_frame, text="=", font=button_font, bg=dark_green, command=equal)
 decimal_button = tkinter.Button(button_frame, text=".", font=button_font, bg='black', fg='white', command=lambda:submit_number("."))
-negate_button = tkinter.Button(button_frame, text="+/-", font=button_font, bg='black', fg='white')
+negate_button = tkinter.Button(button_frame, text="+/-", font=button_font, bg='black', fg='white', command=negate)
 
 nine_button = tkinter.Button(button_frame, text="9", font=button_font, bg="black", fg="white", command=lambda:submit_number(9))
 eight_button = tkinter.Button(button_frame, text="8", font=button_font, bg="black", fg="white", command=lambda:submit_number(8))
