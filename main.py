@@ -69,6 +69,20 @@ def enable_buttons():
     inverse_button.config(state=NORMAL)
     square_button.config(state=NORMAL)
 
+def clear():
+    display.delete(0, END)
+    enable_buttons()
+
+def inverse():
+    if display.get() == "0":
+        value = "ERROR"
+    else:
+        value = 1/float(display.get())
+
+    display.delete(0, END)
+    display.insert(0, value)
+
+
 
 #gui layout
 #define farmes
@@ -82,10 +96,10 @@ display = tkinter.Entry(display_frame, width=50, font=display_font, bg=white_gre
 display.pack(padx=5, pady=5)
 
 #layout for the buttom frame
-clear_button = tkinter.Button(button_frame, text="Clear", font=button_font, bg=dark_green)
+clear_button = tkinter.Button(button_frame, text="Clear", font=button_font, bg=dark_green, command=clear)
 quit_button = tkinter.Button(button_frame, text="Quit", font=button_font, bg=dark_green, command=root.destroy)
 
-inverse_button = tkinter.Button(button_frame, text="1/x", font=button_font, bg=light_green)
+inverse_button = tkinter.Button(button_frame, text="1/x", font=button_font, bg=light_green, command=inverse)
 square_button = tkinter.Button(button_frame, text="x^2", font=button_font, bg=light_green)
 exponent_button = tkinter.Button(button_frame, text="x^n", font=button_font, bg=light_green, command=lambda:operate('exponent'))
 divide_button = tkinter.Button(button_frame, text="/", font=button_font, bg=light_green, command=lambda:operate('divide'))
