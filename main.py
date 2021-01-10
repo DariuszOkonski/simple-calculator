@@ -5,7 +5,7 @@ from tkinter import RIGHT
 root = tkinter.Tk()
 root.title('Calculator')
 root.iconbitmap('calc.ico')
-root.geometry('300x400')
+root.geometry('320x400')
 root.resizable(0, 0)
 
 #define colors and fonts
@@ -21,8 +21,8 @@ display_font = ('Arial', 30)
 #define farmes
 display_frame = tkinter.LabelFrame(root)
 button_frame = tkinter.LabelFrame(root)
-display_frame.pack()
-button_frame.pack()
+display_frame.pack(padx=2, pady=(5, 20))
+button_frame.pack(padx=2, pady=5)
 
 #layout for the display frame
 display = tkinter.Entry(display_frame, width=50, font=display_font, bg=white_green, borderwidth=5, justify=RIGHT)
@@ -35,7 +35,7 @@ quit_button = tkinter.Button(button_frame, text="Quit", font=button_font, bg=dar
 inverse_button = tkinter.Button(button_frame, text="1/x", font=button_font, bg=light_green)
 square_button = tkinter.Button(button_frame, text="x^2", font=button_font, bg=light_green)
 exponent_button = tkinter.Button(button_frame, text="x^n", font=button_font, bg=light_green)
-divide_button = tkinter.Button(button_frame, text=" / ", font=button_font, bg=light_green)
+divide_button = tkinter.Button(button_frame, text="/", font=button_font, bg=light_green)
 multiply_button = tkinter.Button(button_frame, text="*", font=button_font, bg=light_green)
 subtract_button = tkinter.Button(button_frame, text="-", font=button_font, bg=light_green)
 add_button = tkinter.Button(button_frame, text="+", font=button_font, bg=light_green)
