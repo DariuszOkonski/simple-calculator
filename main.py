@@ -40,6 +40,35 @@ def operate(operator):
 
     decimal_button.config(state=NORMAL)
 
+def equal():
+    if operation == 'add':
+        value = float(first_number) + float(display.get())
+    elif operation == 'subtract':
+        value = float(first_number) - float(display.get())
+    elif operation == 'multiply':
+        value = float(first_number) * float(display.get())
+    elif operation == 'divide':
+        if display.get() == "0":
+            value = "ERROR"
+        else:
+            value = float(first_number) / float(display.get())
+    elif operation == 'exponent':
+        value = float(first_number) ** float(display.get())
+
+    display.delete(0, END)
+    display.insert(0, value)
+    enable_buttons()
+
+def enable_buttons():
+    decimal_button.config(state=NORMAL)
+    add_button.config(state=NORMAL)
+    subtract_button.config(state=NORMAL)
+    multiply_button.config(state=NORMAL)
+    divide_button.config(state=NORMAL)
+    exponent_button.config(state=NORMAL)
+    inverse_button.config(state=NORMAL)
+    square_button.config(state=NORMAL)
+
 
 #gui layout
 #define farmes
@@ -63,7 +92,7 @@ divide_button = tkinter.Button(button_frame, text="/", font=button_font, bg=ligh
 multiply_button = tkinter.Button(button_frame, text="*", font=button_font, bg=light_green, command=lambda:operate('multiply'))
 subtract_button = tkinter.Button(button_frame, text="-", font=button_font, bg=light_green, command=lambda:operate('subtract'))
 add_button = tkinter.Button(button_frame, text="+", font=button_font, bg=light_green, command=lambda:operate('add'))
-equal_button = tkinter.Button(button_frame, text="=", font=button_font, bg=dark_green)
+equal_button = tkinter.Button(button_frame, text="=", font=button_font, bg=dark_green, command=equal)
 decimal_button = tkinter.Button(button_frame, text=".", font=button_font, bg='black', fg='white', command=lambda:submit_number("."))
 negate_button = tkinter.Button(button_frame, text="+/-", font=button_font, bg='black', fg='white')
 
